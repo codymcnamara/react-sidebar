@@ -1,14 +1,17 @@
 import Home from './Home'
 import Modal from './Modal'
 import Sidebar from './Sidebar'
+import {useGlobalContext} from './context'
 
 const App = () => {
+  const { isModalOpen } = useGlobalContext();
+
   return (
-    <main>
+    <>
       <Home/>
       <Sidebar></Sidebar>
-      <Modal />
-    </main>
+      {isModalOpen && <Modal/>}
+    </>
   );
 };
 
